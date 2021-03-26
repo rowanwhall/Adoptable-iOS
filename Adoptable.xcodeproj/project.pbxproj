@@ -42,6 +42,7 @@
 		05B462E22601907B00395F9D /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 05B462E12601907B00395F9D /* Realm */; };
 		05B462E42601907B00395F9D /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 05B462E32601907B00395F9D /* RealmSwift */; };
 		05B462E7260687F600395F9D /* AnimalRealmObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B462E6260687F600395F9D /* AnimalRealmObject.swift */; };
+		05B462EA260E972900395F9D /* RealmFavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B462E9260E972900395F9D /* RealmFavoritesManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		05B317A52572BB09006665C5 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		05B317A72572BC65006665C5 /* EnvironmentValues+ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+ImageCache.swift"; sourceTree = "<group>"; };
 		05B462E6260687F600395F9D /* AnimalRealmObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalRealmObject.swift; sourceTree = "<group>"; };
+		05B462E9260E972900395F9D /* RealmFavoritesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmFavoritesManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				0539053F24C4B927004DB1C7 /* AnimalListItem.swift */,
 				05390555253CE04A004DB1C7 /* AnimalDetailView.swift */,
 				05B462E6260687F600395F9D /* AnimalRealmObject.swift */,
+				05B462E9260E972900395F9D /* RealmFavoritesManager.swift */,
 			);
 			path = animal;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				05395F2D25DAFCA50013990B /* Resource.swift in Sources */,
 				057CEB0125E9819B009CD741 /* BreedListItem.swift in Sources */,
 				0584D3F025E96CFE004FBFC1 /* BreedsResponse.swift in Sources */,
+				05B462EA260E972900395F9D /* RealmFavoritesManager.swift in Sources */,
 				05395F2625ABC3140013990B /* ShelterAnimalArguments.swift in Sources */,
 				05395F1E25AB921C0013990B /* AnimalArguments.swift in Sources */,
 				0539054024C4B927004DB1C7 /* AnimalListItem.swift in Sources */,
