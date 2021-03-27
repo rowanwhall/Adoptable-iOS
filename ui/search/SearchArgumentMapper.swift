@@ -17,14 +17,16 @@ class SearchArgumentMapper {
         case 2:
             return "cat"
         case 3:
-            return "scales-fins-other"
+            return "bird"
         case 4:
-            return "small-furry"
+            return "scales-fins-other"
         case 5:
-            return "horse"
+            return "small-furry"
         case 6:
-            return "rabbit"
+            return "horse"
         case 7:
+            return "rabbit"
+        case 8:
             return "barnyard"
         default:
             return nil
