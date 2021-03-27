@@ -35,6 +35,14 @@ struct AppView: View {
                 Image(systemName: "magnifyingglass")
                 Text("Search")
             }
+            
+            NavigationView {
+                AnimalListView(arguments: FavoritesAnimalArguments())
+                    .navigationBarTitle("Favorites")
+            }.tabItem {
+                Image(systemName: "heart")
+                Text("Favorites")
+            }
         }
     }
 }

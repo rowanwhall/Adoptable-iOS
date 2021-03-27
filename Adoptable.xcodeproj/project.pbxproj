@@ -44,6 +44,7 @@
 		05B462E7260687F600395F9D /* AnimalRealmObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B462E6260687F600395F9D /* AnimalRealmObject.swift */; };
 		05B462EA260E972900395F9D /* RealmFavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B462E9260E972900395F9D /* RealmFavoritesManager.swift */; };
 		05B462ED260EAA2600395F9D /* AnimalDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B462EC260EAA2600395F9D /* AnimalDetailViewModel.swift */; };
+		05B462F1260EB7B600395F9D /* FavoritesAnimalArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B462F0260EB7B600395F9D /* FavoritesAnimalArguments.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,7 @@
 		05B462E6260687F600395F9D /* AnimalRealmObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalRealmObject.swift; sourceTree = "<group>"; };
 		05B462E9260E972900395F9D /* RealmFavoritesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmFavoritesManager.swift; sourceTree = "<group>"; };
 		05B462EC260EAA2600395F9D /* AnimalDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalDetailViewModel.swift; sourceTree = "<group>"; };
+		05B462F0260EB7B600395F9D /* FavoritesAnimalArguments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesAnimalArguments.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				05395F1D25AB921C0013990B /* AnimalArguments.swift */,
 				05395F2025AB925C0013990B /* NearbyAnimalArguments.swift */,
 				05395F2525ABC3140013990B /* ShelterAnimalArguments.swift */,
+				05B462F0260EB7B600395F9D /* FavoritesAnimalArguments.swift */,
 			);
 			path = network;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				05390559253CE5CB004DB1C7 /* LocationManager.swift in Sources */,
 				05B317A62572BB09006665C5 /* ImageLoader.swift in Sources */,
 				0539054624F5D762004DB1C7 /* PetfinderRepository.swift in Sources */,
+				05B462F1260EB7B600395F9D /* FavoritesAnimalArguments.swift in Sources */,
 				0584D3F425E96EA5004FBFC1 /* SearchViewModel.swift in Sources */,
 				056CFB3924C37C710012CC7B /* SceneDelegate.swift in Sources */,
 				056CFB3B24C37C710012CC7B /* AnimalListView.swift in Sources */,

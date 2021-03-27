@@ -16,7 +16,7 @@ struct AnimalDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                if (animal.mainPhotoUrl != nil) {
+                if (animal.mainPhotoUrl != nil && !animal.mainPhotoUrl!.isEmpty) {
                     AsyncImage(
                         url: URL(string: animal.mainPhotoUrl!)!,
                         placeholder: { Text("Loading ...") },

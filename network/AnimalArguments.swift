@@ -13,5 +13,5 @@ protocol AnimalArguments {
 }
 
 enum AnimalArgumentType {
-    case find, shelter
+    case find, shelter, favorites
 }

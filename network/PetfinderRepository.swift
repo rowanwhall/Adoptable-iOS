@@ -14,7 +14,6 @@ let petfinderRepository = PetfinderRepository()
 class PetfinderRepository {
     
     private let BASE_URL = "https://api.petfinder.com/v2/"
-    
     private var oAuthToken: String? = nil
     
     private func combineAuthToken() -> AnyPublisher<String?, Never> {
@@ -73,6 +72,8 @@ class PetfinderRepository {
         case AnimalArgumentType.shelter:
             let shelterArguments = arguments as! ShelterAnimalArguments
             url.queryItems?.append(URLQueryItem(name: "organization", value: shelterArguments.shelterId))
+        case AnimalArgumentType.favorites:
+            print("ERROR: Favorites type should never reach Combine function")
         }
         
         var request = URLRequest(url: url.url!)

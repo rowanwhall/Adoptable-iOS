@@ -10,11 +10,10 @@ import Foundation
 
 class AnimalDetailViewModel: ObservableObject {
     
-    let realmManager = RealmFavoritesManager()
     @Published var favoriteButtonLabel = ""
     
     func initializeFavoriteButton(animal: AnimalListItem) {
-        if (realmManager.isFavorite(id: animal.id)) {
+        if (RealmFavoritesManager.instance.isFavorite(id: animal.id)) {
             favoriteButtonLabel = "Remove from Favorites"
         } else {
             favoriteButtonLabel = "Add to Favorites"
@@ -22,6 +21,7 @@ class AnimalDetailViewModel: ObservableObject {
     }
     
     func addOrRemoveFromFavorites(animal: AnimalListItem) {
+        let realmManager = RealmFavoritesManager.instance
         if (realmManager.isFavorite(id: animal.id)) {
             realmManager.removeFromFavorites(animal: animal)
             favoriteButtonLabel = "Add to Favorites"

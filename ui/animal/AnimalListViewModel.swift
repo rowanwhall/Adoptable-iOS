@@ -15,7 +15,15 @@ class AnimalListViewModel: ObservableObject {
     @Published var resource: Resource<[AnimalListItem]> = Resource<[AnimalListItem]>.initialize()
     var nextPage = 1
     
+    private var isFavorites = false
+    
     func getAnimalList(arguments: AnimalArguments) {
+        if (arguments.type() == AnimalArgumentType.favorites) {
+            self.isFavorites = true
+            self.resource = Resource.success(resourceData: RealmFavoritesManager.instance.getFavorites())
+            return
+        }
+        
         petfinderRepository.getAnimalList(arguments: arguments, page: nextPage)
             .map { (response: AnimalResponse?) -> Resource<[AnimalListItem]> in
                 var results = self.resource.resourceData ?? []
@@ -31,6 +39,9 @@ class AnimalListViewModel: ObservableObject {
     }
     
     func shouldPaginate(animal: AnimalListItem) -> Bool {
+        if (isFavorites) {
+            return false
+        }
         return animal.fetchPage >= nextPage
     }
 }
