@@ -37,7 +37,7 @@ struct AppView: View {
             }
             
             NavigationView {
-                AnimalListView(arguments: FavoritesAnimalArguments())
+                AnimalListView(arguments: FavoritesAnimalArguments(), customTitle: "Favorites")
                     .navigationBarTitle("Favorites")
             }.tabItem {
                 Image(systemName: "heart")

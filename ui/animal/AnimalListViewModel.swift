@@ -8,10 +8,12 @@
 
 import Foundation
 import Combine
+import RealmSwift
 
 class AnimalListViewModel: ObservableObject {
     
     var subscriptions: Set<AnyCancellable> = []
+    var realmToken: NotificationToken? = nil
     @Published var resource: Resource<[AnimalListItem]> = Resource<[AnimalListItem]>.initialize()
     var nextPage = 1
     
@@ -20,7 +22,20 @@ class AnimalListViewModel: ObservableObject {
     func getAnimalList(arguments: AnimalArguments) {
         if (arguments.type() == AnimalArgumentType.favorites) {
             self.isFavorites = true
-            self.resource = Resource.success(resourceData: RealmFavoritesManager.instance.getFavorites())
+            let realmManager = RealmFavoritesManager.instance
+            let realmResults = realmManager.getFavorites()
+            realmToken = realmResults.observe { change in
+                switch change {
+                case .initial:
+                        self.resource = Resource.success(resourceData: realmManager.toListItems(results: realmResults))
+                    case .update(_, _, _, _):
+                        self.realmToken?.invalidate()
+                        self.getAnimalList(arguments: arguments)
+                    case .error(_):
+                        self.resource = Resource.failure(resource: self.resource, error: "An error occurred")
+                }
+                
+            }
             return
         }
         

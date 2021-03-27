@@ -12,13 +12,10 @@ import RealmSwift
 class RealmFavoritesManager {
     
     static let instance = RealmFavoritesManager()
-    var favorites: [AnimalListItem] = []
     
     let realm = try! Realm()
     
-    private init() {
-        self.favorites = getFavoritesA()
-    }
+    private init() {}
     
     func isFavorite(id: String?) -> Bool {
         if (id == nil) {
@@ -43,37 +40,16 @@ class RealmFavoritesManager {
         }
     }
     
-    func getFavorites() -> [AnimalListItem] {
-        return favorites
+    func getFavorites() -> Results<AnimalRealmObject> {
+        return realm.objects(AnimalRealmObject.self)
     }
     
-    private func getFavoritesA() -> [AnimalListItem] {
-        let results = realm.objects(AnimalRealmObject.self)
+    func toListItems(results: Results<AnimalRealmObject>) -> [AnimalListItem] {
         var animals: [AnimalListItem] = []
         for result in results {
             animals.append(toListItem(animal: result))
         }
         return animals
-    }
-    
-    private func toRealmObject(animal: AnimalListItem) -> AnimalRealmObject {
-        let realmObject = AnimalRealmObject()
-        realmObject.id = animal.id
-        realmObject.name = animal.name
-        realmObject.type = animal.type
-        realmObject.breed = animal.breed
-        realmObject.size = animal.size
-        realmObject.age = animal.age
-        realmObject.sex = animal.sex
-        realmObject.city = animal.city
-        realmObject.state = animal.state
-        realmObject.spayNeuter = animal.spayNeuter
-        realmObject.houseTrained = animal.houseTrained
-        realmObject.specialNeeds = animal.specialNeeds
-        realmObject.shotsCurrent = animal.shotsCurrent
-        realmObject.descriptionString = animal.description
-        realmObject.mainPhotoUrl = animal.mainPhotoUrl
-        return realmObject
     }
     
     private func toListItem(animal: AnimalRealmObject) -> AnimalListItem {
@@ -94,5 +70,25 @@ class RealmFavoritesManager {
             description: animal.descriptionString,
             mainPhotoUrl: animal.mainPhotoUrl,
             fetchPage: -1)
+    }
+    
+    private func toRealmObject(animal: AnimalListItem) -> AnimalRealmObject {
+        let realmObject = AnimalRealmObject()
+        realmObject.id = animal.id
+        realmObject.name = animal.name
+        realmObject.type = animal.type
+        realmObject.breed = animal.breed
+        realmObject.size = animal.size
+        realmObject.age = animal.age
+        realmObject.sex = animal.sex
+        realmObject.city = animal.city
+        realmObject.state = animal.state
+        realmObject.spayNeuter = animal.spayNeuter
+        realmObject.houseTrained = animal.houseTrained
+        realmObject.specialNeeds = animal.specialNeeds
+        realmObject.shotsCurrent = animal.shotsCurrent
+        realmObject.descriptionString = animal.description
+        realmObject.mainPhotoUrl = animal.mainPhotoUrl
+        return realmObject
     }
 }
