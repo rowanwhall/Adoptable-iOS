@@ -27,6 +27,15 @@ class RealmFavoritesManager {
         }
     }
     
+    func removeFromFavorites(animal: AnimalListItem) {
+        try! realm.write {
+            let predicate = NSPredicate(format: "id = %@", animal.id)
+            realm.objects(AnimalRealmObject.self).filter(predicate).forEach { result in
+                realm.delete(result)
+            }
+        }
+    }
+    
     func getFavorites() -> [AnimalListItem] {
         let results = realm.objects(AnimalRealmObject.self)
         var animals: [AnimalListItem] = []

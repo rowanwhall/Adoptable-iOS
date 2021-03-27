@@ -10,6 +10,7 @@ import SwiftUI
 
 struct AnimalDetailView: View {
     
+    @ObservedObject private var viewModel = AnimalDetailViewModel()
     var animal: AnimalListItem
     
     var body: some View {
@@ -33,6 +34,11 @@ struct AnimalDetailView: View {
                     Spacer()
                     Text(animal.description)
                 }
+                
+                Spacer()
+                
+                Button(viewModel.favoriteButtonLabel, action: { viewModel.addOrRemoveFromFavorites(animal: animal) })
+                    .onAppear(perform: { viewModel.initializeFavoriteButton(animal: animal) })
             }.navigationBarTitle(animal.name)
         }.padding()
     }

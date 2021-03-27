@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 class AnimalRealmObject: Object {
-    @objc var id: Int = 0
+    @objc var id: String = ""
     @objc var name: String = ""
     @objc var type: String = ""
     @objc var breed: String = ""

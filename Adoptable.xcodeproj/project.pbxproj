@@ -43,6 +43,7 @@
 		05B462E42601907B00395F9D /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 05B462E32601907B00395F9D /* RealmSwift */; };
 		05B462E7260687F600395F9D /* AnimalRealmObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B462E6260687F600395F9D /* AnimalRealmObject.swift */; };
 		05B462EA260E972900395F9D /* RealmFavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B462E9260E972900395F9D /* RealmFavoritesManager.swift */; };
+		05B462ED260EAA2600395F9D /* AnimalDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B462EC260EAA2600395F9D /* AnimalDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		05B317A72572BC65006665C5 /* EnvironmentValues+ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+ImageCache.swift"; sourceTree = "<group>"; };
 		05B462E6260687F600395F9D /* AnimalRealmObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalRealmObject.swift; sourceTree = "<group>"; };
 		05B462E9260E972900395F9D /* RealmFavoritesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmFavoritesManager.swift; sourceTree = "<group>"; };
+		05B462EC260EAA2600395F9D /* AnimalDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				0539054324F5D71D004DB1C7 /* AnimalListViewModel.swift */,
 				0539053F24C4B927004DB1C7 /* AnimalListItem.swift */,
 				05390555253CE04A004DB1C7 /* AnimalDetailView.swift */,
+				05B462EC260EAA2600395F9D /* AnimalDetailViewModel.swift */,
 				05B462E6260687F600395F9D /* AnimalRealmObject.swift */,
 				05B462E9260E972900395F9D /* RealmFavoritesManager.swift */,
 			);
@@ -304,6 +307,7 @@
 				0584D3EA25E849D5004FBFC1 /* SearchView.swift in Sources */,
 				057CEB0C25E9B2CA009CD741 /* Constants.swift in Sources */,
 				0539054C24FC763F004DB1C7 /* ShelterListItem.swift in Sources */,
+				05B462ED260EAA2600395F9D /* AnimalDetailViewModel.swift in Sources */,
 				0539054E2505A211004DB1C7 /* ShelterViewModel.swift in Sources */,
 				05390556253CE04A004DB1C7 /* AnimalDetailView.swift in Sources */,
 				0539054424F5D71D004DB1C7 /* AnimalListViewModel.swift in Sources */,

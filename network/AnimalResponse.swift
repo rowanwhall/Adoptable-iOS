@@ -19,7 +19,7 @@ struct AnimalResponse: Codable {
         for responseItem in animals {
             i += 1
             animalArray.append(AnimalListItem(
-                id: responseItem.id,
+                id: String(responseItem.id),
                 name: responseItem.name,
                 type: responseItem.type ?? "Type not available",
                 breed: responseItem.breeds.primary ?? "Breed not available",

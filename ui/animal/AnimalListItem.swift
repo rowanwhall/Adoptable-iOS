@@ -9,7 +9,7 @@
 import Foundation
 
 struct AnimalListItem: Codable, Identifiable {
-    var id: Int
+    var id: String
     var name: String
     var type: String
     var breed: String
