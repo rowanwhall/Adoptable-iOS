@@ -51,6 +51,11 @@ class LocationManager: NSObject, ObservableObject {
 extension LocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         self.status = status
+        if self.status == .authorizedAlways || self.status == .authorizedWhenInUse {
+            self.locationManager.startUpdatingLocation()
+        } else {
+            //todo: 
+        }
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

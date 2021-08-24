@@ -10,10 +10,12 @@ import SwiftUI
 
 struct AppView: View {
     
+    var location: String = "30308"
+    
     var body: some View {
         TabView {
             NavigationView {
-                AnimalListView(arguments: NearbyAnimalArguments(location: "30308", animal: nil, size: nil, age: nil, sex: nil, breed: nil))
+                AnimalListView(arguments: NearbyAnimalArguments(location: self.location, animal: nil, size: nil, age: nil, sex: nil, breed: nil))
                     .navigationBarTitle("Animals")
             }.tabItem {
                 Image(systemName: "list.dash")
