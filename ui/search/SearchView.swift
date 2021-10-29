@@ -27,7 +27,6 @@ struct SearchView : View {
     
     var body: some View {
         VStack {
-            
             Form {
                 Section {
                     TextField("Zip Code", text: $zipCode)

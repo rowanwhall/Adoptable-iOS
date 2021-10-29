@@ -11,56 +11,37 @@ import CoreLocation
 import Combine
 
 class LocationManager: NSObject, ObservableObject {
+    
     private let locationManager = CLLocationManager()
-    private let geocoder = CLGeocoder()
-    let objectWillChange = PassthroughSubject<Void, Never>()
-
-    @Published var status: CLAuthorizationStatus? {
-        willSet { objectWillChange.send() }
-    }
-
-    @Published var location: CLLocation? {
-        willSet { objectWillChange.send() }
-    }
-
-    @Published var placemark: CLPlacemark? {
-        willSet { objectWillChange.send() }
-    }
-
-    override init() {
-        super.init()
-
+    
+    private var onStatusUpdate: ((CLAuthorizationStatus) -> Void)?
+    private var onLocationUpdate: ((CLLocation) -> Void)?
+    
+    func requestUpdates(onStatusUpdate:@escaping (CLAuthorizationStatus) -> Void, onLocationUpdate: ((CLLocation) -> Void)?) {
+        self.onStatusUpdate = onStatusUpdate
+        self.onLocationUpdate = onLocationUpdate
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingLocation()
     }
-
-    private func geocode() {
-      guard let location = self.location else { return }
-      geocoder.reverseGeocodeLocation(location, completionHandler: { (places, error) in
-        if error == nil {
-          self.placemark = places?[0]
-        } else {
-          self.placemark = nil
-        }
-      })
+    
+    func startUpdatingLocation() {
+        self.locationManager.startUpdatingLocation()
+    }
+    
+    func isLocationDenied() -> Bool {
+        return self.locationManager.authorizationStatus == CLAuthorizationStatus.denied
     }
 }
 
 extension LocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        self.status = status
-        if self.status == .authorizedAlways || self.status == .authorizedWhenInUse {
-            self.locationManager.startUpdatingLocation()
-        } else {
-            //todo: 
-        }
+        self.onStatusUpdate?(status)
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
-        self.location = location
-        self.geocode()
+        self.onLocationUpdate?(location)
     }
 }

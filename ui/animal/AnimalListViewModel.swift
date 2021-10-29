@@ -42,8 +42,10 @@ class AnimalListViewModel: ObservableObject {
         petfinderRepository.getAnimalList(arguments: arguments, page: nextPage)
             .map { (response: AnimalResponse?) -> Resource<[AnimalListItem]> in
                 var results = self.resource.resourceData ?? []
-                results += response!.toAnimals()
-                self.nextPage = response!.currentPage() + 1
+                if response != nil {
+                    results += response!.toAnimals()
+                    self.nextPage = response!.currentPage() + 1
+                }
                 return Resource.success(resourceData: results)
             }
             .prepend(Resource.progress(resource: self.resource))

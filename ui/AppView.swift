@@ -10,7 +10,7 @@ import SwiftUI
 
 struct AppView: View {
     
-    var location: String = "30308"
+    var location: String = ""
     
     var body: some View {
         TabView {
@@ -21,6 +21,7 @@ struct AppView: View {
                 Image(systemName: "list.dash")
                 Text("Animals")
             }
+            .edgesIgnoringSafeArea([.top, .bottom])
         
             NavigationView {
                 ShelterListView()
@@ -46,6 +47,8 @@ struct AppView: View {
                 Text("Favorites")
             }
         }
+        .navigationBarBackButtonHidden(true)
+        .edgesIgnoringSafeArea([.top, .bottom])
     }
 }
 
