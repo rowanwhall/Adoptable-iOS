@@ -47,6 +47,7 @@ struct AppView: View {
                 Text("Favorites")
             }
         }
+        .accentColor(Color.primaryColorLegacy)
         .navigationBarBackButtonHidden(true)
         .edgesIgnoringSafeArea([.top, .bottom])
     }

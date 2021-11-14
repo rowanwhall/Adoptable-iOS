@@ -44,6 +44,7 @@ struct ShelterListView: View {
                 }
             }
         }
+        .blueNavigation
     }
 }
 

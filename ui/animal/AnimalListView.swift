@@ -45,6 +45,7 @@ struct AnimalListView: View {
                 }
             }
         }
+        .blueNavigation
         .navigationTitle(customTitle)
     }
 }

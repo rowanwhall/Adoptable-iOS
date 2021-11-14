@@ -41,5 +41,6 @@ struct AnimalDetailView: View {
                     .onAppear(perform: { viewModel.initializeFavoriteButton(animal: animal) })
             }.navigationBarTitle(animal.name)
         }.padding()
+        .blueNavigation
     }
 }

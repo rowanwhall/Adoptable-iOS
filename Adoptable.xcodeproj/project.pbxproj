@@ -46,6 +46,8 @@
 		05B462ED260EAA2600395F9D /* AnimalDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B462EC260EAA2600395F9D /* AnimalDetailViewModel.swift */; };
 		05B462F1260EB7B600395F9D /* FavoritesAnimalArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B462F0260EB7B600395F9D /* FavoritesAnimalArguments.swift */; };
 		05B462F526D4844E00395F9D /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B462F426D4844E00395F9D /* SplashView.swift */; };
+		05B8E5D0274193FC00CEAF0F /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B8E5CF274193FC00CEAF0F /* NavigationBarModifier.swift */; };
+		05B8E5D22741998900CEAF0F /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B8E5D12741998900CEAF0F /* Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +90,8 @@
 		05B462EC260EAA2600395F9D /* AnimalDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalDetailViewModel.swift; sourceTree = "<group>"; };
 		05B462F0260EB7B600395F9D /* FavoritesAnimalArguments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesAnimalArguments.swift; sourceTree = "<group>"; };
 		05B462F426D4844E00395F9D /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		05B8E5CF274193FC00CEAF0F /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
+		05B8E5D12741998900CEAF0F /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +151,8 @@
 			isa = PBXGroup;
 			children = (
 				0539054724FC707E004DB1C7 /* AppView.swift */,
+				05B8E5D12741998900CEAF0F /* Color.swift */,
+				05B8E5CF274193FC00CEAF0F /* NavigationBarModifier.swift */,
 				0584D3E825E849A0004FBFC1 /* search */,
 				05390557253CE5B2004DB1C7 /* location */,
 				053905522505AF2D004DB1C7 /* animal */,
@@ -321,7 +327,9 @@
 				0584D3ED25E87437004FBFC1 /* SearchArgumentMapper.swift in Sources */,
 				05395F2D25DAFCA50013990B /* Resource.swift in Sources */,
 				057CEB0125E9819B009CD741 /* BreedListItem.swift in Sources */,
+				05B8E5D0274193FC00CEAF0F /* NavigationBarModifier.swift in Sources */,
 				0584D3F025E96CFE004FBFC1 /* BreedsResponse.swift in Sources */,
+				05B8E5D22741998900CEAF0F /* Color.swift in Sources */,
 				05B462EA260E972900395F9D /* RealmFavoritesManager.swift in Sources */,
 				05395F2625ABC3140013990B /* ShelterAnimalArguments.swift in Sources */,
 				05395F1E25AB921C0013990B /* AnimalArguments.swift in Sources */,
