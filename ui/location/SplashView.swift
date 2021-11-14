@@ -26,7 +26,7 @@ struct SplashView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text("Splash Screen Here")
+                ProgressView()
                 NavigationLink(destination: AppView(location: self.latLng), tag: .appView, selection: $selectedDestination) {}
                 NavigationLink(destination: LocationView(), tag: .locationView, selection: $selectedDestination) {}
             }
