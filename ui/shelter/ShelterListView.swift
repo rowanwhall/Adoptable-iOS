@@ -18,7 +18,7 @@ struct ShelterListView: View {
                 Color.clear.onAppear(perform: { viewModel.getShelterList() })
             } else {
                 if (viewModel.resource.isLoading()) {
-                    Text("Loading")
+                    ProgressView()
                 }
                 if (viewModel.resource.hasError()) {
                     Text(viewModel.resource.error)

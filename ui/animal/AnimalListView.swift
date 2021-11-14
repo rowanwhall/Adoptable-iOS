@@ -20,7 +20,7 @@ struct AnimalListView: View {
                 Color.clear.onAppear(perform: { viewModel.getAnimalList(arguments: self.arguments) })
             } else {
                 if (viewModel.resource.isLoading()) {
-                    Text("Loading")
+                    ProgressView()
                 }
                 if (viewModel.resource.hasError()) {
                     Text(viewModel.resource.error)
@@ -58,7 +58,7 @@ struct AnimalCard: View {
             if (animal.mainPhotoUrl != nil && !animal.mainPhotoUrl!.isEmpty) {
                 AsyncImage(
                     url: URL(string: animal.mainPhotoUrl!)!,
-                    placeholder: { Text("Loading Image") },
+                    placeholder: { ProgressView() },
                     image: { Image(uiImage: $0).resizable() }
                 ).frame(idealHeight: UIScreen.main.bounds.width / 4 * 3)
             }
