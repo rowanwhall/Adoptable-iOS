@@ -24,23 +24,20 @@ struct AnimalDetailView: View {
                     ).frame(idealHeight: UIScreen.main.bounds.width / 4 * 3)
                 }
                 
-                Spacer()
-                
+                Text(animal.name)
+                    .font(.largeTitle)
+                    .padding(EdgeInsets(top: 8, leading: 16, bottom: 4, trailing: 16))
                 Text(animal.header())
                     .font(.headline)
+                    .padding(EdgeInsets(top: 0, leading: 16, bottom: 4, trailing: 16))
                 Text(animal.detail())
                     .font(.subheadline)
-                if (!animal.description.isEmpty) {
-                    Spacer()
-                    Text(animal.description)
-                }
-                
-                Spacer()
+                    .padding(EdgeInsets(top: 0, leading: 16, bottom: 4, trailing: 16))
                 
                 Button(viewModel.favoriteButtonLabel, action: { viewModel.addOrRemoveFromFavorites(animal: animal) })
+                    .padding(EdgeInsets(top: 0, leading: 16, bottom: 4, trailing: 16))
                     .onAppear(perform: { viewModel.initializeFavoriteButton(animal: animal) })
             }.navigationBarTitle(animal.name)
-        }.padding()
-        .blueNavigation
+        }.blueNavigation
     }
 }

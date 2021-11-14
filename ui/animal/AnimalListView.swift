@@ -31,14 +31,13 @@ struct AnimalListView: View {
                     } else {
                         List {
                             ForEach(viewModel.resource.resourceData!) {animal in
-                                NavigationLink(destination: AnimalDetailView(animal: animal)) {
-                                    AnimalCard(animal: animal)
-                                        .onAppear(perform: {
-                                            if (self.viewModel.shouldPaginate(animal: animal)) {
-                                                self.viewModel.getAnimalList(arguments: self.arguments)
-                                            }
-                                    })
-                                }
+                                AnimalCard(animal: animal)
+                                    .onAppear(perform: {
+                                        if (self.viewModel.shouldPaginate(animal: animal)) {
+                                            self.viewModel.getAnimalList(arguments: self.arguments)
+                                        }
+                                    }).background(NavigationLink("", destination: AnimalDetailView(animal: animal)).opacity(0))
+                                    .listRowInsets(EdgeInsets())
                             }
                         }
                     }
@@ -66,11 +65,13 @@ struct AnimalCard: View {
             
             Text(animal.name)
                 .font(.largeTitle)
-            Spacer()
+                .padding(EdgeInsets(top: 8, leading: 16, bottom: 4, trailing: 16))
             Text(animal.header())
                 .font(.headline)
+                .padding(EdgeInsets(top: 0, leading: 16, bottom: 4, trailing: 16))
             Text(animal.detail())
                 .font(.subheadline)
-        }.padding()
+                .padding(EdgeInsets(top: 0, leading: 16, bottom: 16, trailing: 16))
+        }
     }
 }
