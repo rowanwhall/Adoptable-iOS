@@ -30,7 +30,6 @@ struct SplashView: View {
             NavigationLink(destination: LocationView(), tag: .locationView, selection: $selectedDestination) {}
         }
         .primaryNavigationColor
-        .navigationTitle("Adoptable")
         .navigationBarBackButtonHidden(true)
         .onAppear(perform: subscribeToLocationUpdates)
     }

@@ -12,10 +12,10 @@ struct AnimalListView: View {
     
     @ObservedObject private var viewModel = AnimalListViewModel()
     var arguments: AnimalArguments
-    var customTitle: String = "Nearby Animals"
+    var customTitle: String = ""
     
     var body: some View {
-        ZStack {
+        Group {
             if (viewModel.resource.isIdle()) {
                 Color.clear.onAppear(perform: { viewModel.getAnimalList(arguments: self.arguments) })
             } else {

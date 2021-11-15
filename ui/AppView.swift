@@ -14,41 +14,31 @@ struct AppView: View {
     
     var body: some View {
         TabView {
-            NavigationView {
-                AnimalListView(arguments: NearbyAnimalArguments(location: self.location, animal: nil, size: nil, age: nil, sex: nil, breed: nil))
-                    .navigationBarTitle("Animals")
-            }.tabItem {
-                Image(systemName: "list.dash")
-                Text("Animals")
-            }
-            .edgesIgnoringSafeArea([.top, .bottom])
+            AnimalListView(arguments: NearbyAnimalArguments(location: self.location, animal: nil, size: nil, age: nil, sex: nil, breed: nil))
+                .tabItem {
+                    Image(systemName: "list.dash")
+                    Text("Animals")
+                }
         
-            NavigationView {
-                ShelterListView()
-                    .navigationBarTitle("Shelters")
-            }.tabItem {
-                Image(systemName: "house")
-                Text("Shelters")
-            }
+            ShelterListView()
+                .tabItem {
+                    Image(systemName: "house")
+                    Text("Shelters")
+                }
             
-            NavigationView {
-                SearchView()
-                    .navigationBarTitle("Search")
-            }.tabItem {
-                Image(systemName: "magnifyingglass")
-                Text("Search")
-            }
+            SearchView()
+                .tabItem {
+                    Image(systemName: "magnifyingglass")
+                    Text("Search")
+                }
             
-            NavigationView {
-                AnimalListView(arguments: FavoritesAnimalArguments(), customTitle: "Favorites")
-                    .navigationBarTitle("Favorites")
-            }.tabItem {
-                Image(systemName: "heart")
-                Text("Favorites")
-            }
+            AnimalListView(arguments: FavoritesAnimalArguments(), customTitle: "Favorites")
+                .tabItem {
+                    Image(systemName: "heart")
+                    Text("Favorites")
+                }
         }
         .accentColor(Color.primaryColorLegacy)
         .navigationBarBackButtonHidden(true)
-        .edgesIgnoringSafeArea([.top, .bottom])
     }
 }
