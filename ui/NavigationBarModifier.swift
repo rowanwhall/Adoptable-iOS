@@ -50,7 +50,7 @@ extension View {
 }
 
 extension View {
-  var blueNavigation: some View {
+  var primaryNavigationColor: some View {
     self.navigationBarColor(Color.primaryColor, textColor: UIColor.white)
   }
 }

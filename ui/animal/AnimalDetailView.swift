@@ -38,6 +38,6 @@ struct AnimalDetailView: View {
                     .padding(EdgeInsets(top: 0, leading: 16, bottom: 4, trailing: 16))
                     .onAppear(perform: { viewModel.initializeFavoriteButton(animal: animal) })
             }.navigationBarTitle(animal.name)
-        }.blueNavigation
+        }.primaryNavigationColor
     }
 }

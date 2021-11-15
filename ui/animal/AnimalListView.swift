@@ -12,7 +12,7 @@ struct AnimalListView: View {
     
     @ObservedObject private var viewModel = AnimalListViewModel()
     var arguments: AnimalArguments
-    var customTitle: String = "Animals"
+    var customTitle: String = "Nearby Animals"
     
     var body: some View {
         ZStack {
@@ -44,7 +44,7 @@ struct AnimalListView: View {
                 }
             }
         }
-        .blueNavigation
+        .primaryNavigationColor
         .navigationTitle(customTitle)
     }
 }

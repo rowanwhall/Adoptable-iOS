@@ -30,6 +30,8 @@ struct SplashView: View {
                 NavigationLink(destination: AppView(location: self.latLng), tag: .appView, selection: $selectedDestination) {}
                 NavigationLink(destination: LocationView(), tag: .locationView, selection: $selectedDestination) {}
             }
+            .primaryNavigationColor
+            .navigationTitle("Adoptable")
         }
         .navigationBarBackButtonHidden(true)
         .edgesIgnoringSafeArea([.top, .bottom])

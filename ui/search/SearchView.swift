@@ -80,6 +80,6 @@ struct SearchView : View {
                 }
             }
         }
-        .blueNavigation
+        .primaryNavigationColor
     }
 }

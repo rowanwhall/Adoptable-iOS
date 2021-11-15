@@ -19,7 +19,7 @@ class ShelterListViewModel: ObservableObject {
         petfinderRepository.getShelterList(page: nextPage)
             .map { (response: ShelterResponse?) -> Resource<[ShelterListItem]> in
                 var results = self.resource.resourceData ?? []
-                results += response!.toShelters()
+                results += response?.toShelters() ?? []
                 self.nextPage = response!.currentPage() + 1
                 return Resource.success(resourceData: results)
             }

@@ -24,12 +24,16 @@ struct LocationView: View {
                             .keyboardType(.decimalPad)
                         
                         NavigationLink(destination: AppView(location: zipCode), tag: 1, selection: $searchAction) {
-                            Button("Enter", action: { self.searchAction = 1}).disabled(zipCode.isEmpty)
+                            Button("Enter", action: { self.searchAction = 1})
+                                .foregroundColor(Color.primaryColorLegacy)
+                                .disabled(zipCode.isEmpty)
                         }
                         .disabled(zipCode.isEmpty)
                     }
                 }
             }
+            .primaryNavigationColor
+            .navigationTitle("Custom Location")
         }
         .navigationBarBackButtonHidden(true)
         .edgesIgnoringSafeArea([.top, .bottom])
