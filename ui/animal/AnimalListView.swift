@@ -15,7 +15,7 @@ struct AnimalListView: View {
     var customTitle: String = ""
     
     var body: some View {
-        Group {
+        ZStack {
             if (viewModel.resource.isIdle()) {
                 Color.clear.onAppear(perform: { viewModel.getAnimalList(arguments: self.arguments) })
             } else {
@@ -59,8 +59,8 @@ struct AnimalCard: View {
                 AsyncImage(
                     url: URL(string: animal.mainPhotoUrl!)!,
                     placeholder: { ProgressView() },
-                    image: { Image(uiImage: $0).resizable() }
-                ).frame(idealHeight: UIScreen.main.bounds.width / 4 * 3)
+                    image: { Image(uiImage: $0) }
+                )
             }
             
             Text(animal.name)

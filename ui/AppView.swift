@@ -40,5 +40,10 @@ struct AppView: View {
         }
         .accentColor(Color.primaryColorLegacy)
         .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Image("toolbarImageSet")
+            }
+        }
     }
 }

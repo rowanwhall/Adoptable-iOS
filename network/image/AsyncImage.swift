@@ -24,9 +24,12 @@ struct AsyncImage<Placeholder: View>: View {
         Group {
             if loader.image != nil {
                 image(loader.image!)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
             } else {
                 placeholder
             }
         }
+        .frame(minHeight: 200)
     }
 }

@@ -20,8 +20,8 @@ struct AnimalDetailView: View {
                     AsyncImage(
                         url: URL(string: animal.mainPhotoUrl!)!,
                         placeholder: { ProgressView() },
-                        image: { Image(uiImage: $0).resizable() }
-                    ).frame(idealHeight: UIScreen.main.bounds.width / 4 * 3)
+                        image: { Image(uiImage: $0) }
+                    )
                 }
                 
                 Text(animal.name)
