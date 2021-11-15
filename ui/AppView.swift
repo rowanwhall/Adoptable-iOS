@@ -52,9 +52,3 @@ struct AppView: View {
         .edgesIgnoringSafeArea([.top, .bottom])
     }
 }
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        AppView()
-    }
-}

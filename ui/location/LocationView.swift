@@ -15,28 +15,25 @@ struct LocationView: View {
     @State private var searchAction: Int? = 0
 
     var body: some View {
-        NavigationView {
-            VStack {
-                Form {
-                    Section {
-                        Text("If you don't want to grant Adoptable your location, you can enter your zipcode instead")
-                        TextField("Zip Code", text: $zipCode)
-                            .keyboardType(.decimalPad)
-                        
-                        NavigationLink(destination: AppView(location: zipCode), tag: 1, selection: $searchAction) {
-                            Button("Enter", action: { self.searchAction = 1})
-                                .foregroundColor(Color.primaryColorLegacy)
-                                .disabled(zipCode.isEmpty)
-                        }
-                        .disabled(zipCode.isEmpty)
+        VStack {
+            Form {
+                Section {
+                    Text("If you don't want to grant Adoptable your location, you can enter your zipcode instead")
+                    TextField("Zip Code", text: $zipCode)
+                        .keyboardType(.decimalPad)
+                    
+                    NavigationLink(destination: AppView(location: zipCode), tag: 1, selection: $searchAction) {
+                        Button("Enter", action: { self.searchAction = 1})
+                            .foregroundColor(Color.primaryColorLegacy)
+                            .disabled(zipCode.isEmpty)
                     }
+                    .disabled(zipCode.isEmpty)
                 }
             }
-            .primaryNavigationColor
-            .navigationTitle("Custom Location")
         }
+        .primaryNavigationColor
+        .navigationTitle("Manual Location")
         .navigationBarBackButtonHidden(true)
-        .edgesIgnoringSafeArea([.top, .bottom])
     }
 }
 

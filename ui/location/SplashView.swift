@@ -24,17 +24,14 @@ struct SplashView: View {
     @State var latLng = ""
     
     var body: some View {
-        NavigationView {
-            VStack {
-                ProgressView()
-                NavigationLink(destination: AppView(location: self.latLng), tag: .appView, selection: $selectedDestination) {}
-                NavigationLink(destination: LocationView(), tag: .locationView, selection: $selectedDestination) {}
-            }
-            .primaryNavigationColor
-            .navigationTitle("Adoptable")
+        VStack {
+            ProgressView()
+            NavigationLink(destination: AppView(location: self.latLng), tag: .appView, selection: $selectedDestination) {}
+            NavigationLink(destination: LocationView(), tag: .locationView, selection: $selectedDestination) {}
         }
+        .primaryNavigationColor
+        .navigationTitle("Adoptable")
         .navigationBarBackButtonHidden(true)
-        .edgesIgnoringSafeArea([.top, .bottom])
         .onAppear(perform: subscribeToLocationUpdates)
     }
     

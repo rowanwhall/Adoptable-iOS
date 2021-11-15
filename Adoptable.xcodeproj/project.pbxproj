@@ -48,6 +48,7 @@
 		05B462F526D4844E00395F9D /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B462F426D4844E00395F9D /* SplashView.swift */; };
 		05B8E5D0274193FC00CEAF0F /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B8E5CF274193FC00CEAF0F /* NavigationBarModifier.swift */; };
 		05B8E5D22741998900CEAF0F /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B8E5D12741998900CEAF0F /* Color.swift */; };
+		05B8E5D7274205B300CEAF0F /* NavigatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B8E5D6274205B300CEAF0F /* NavigatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +93,7 @@
 		05B462F426D4844E00395F9D /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		05B8E5CF274193FC00CEAF0F /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
 		05B8E5D12741998900CEAF0F /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		05B8E5D6274205B300CEAF0F /* NavigatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 		053905542505AF7F004DB1C7 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				05B8E5D6274205B300CEAF0F /* NavigatorView.swift */,
 				0539054724FC707E004DB1C7 /* AppView.swift */,
 				05B8E5D12741998900CEAF0F /* Color.swift */,
 				05B8E5CF274193FC00CEAF0F /* NavigationBarModifier.swift */,
@@ -322,6 +325,7 @@
 				05B462ED260EAA2600395F9D /* AnimalDetailViewModel.swift in Sources */,
 				0539054E2505A211004DB1C7 /* ShelterViewModel.swift in Sources */,
 				05390556253CE04A004DB1C7 /* AnimalDetailView.swift in Sources */,
+				05B8E5D7274205B300CEAF0F /* NavigatorView.swift in Sources */,
 				0539054424F5D71D004DB1C7 /* AnimalListViewModel.swift in Sources */,
 				05B462E7260687F600395F9D /* AnimalRealmObject.swift in Sources */,
 				0584D3ED25E87437004FBFC1 /* SearchArgumentMapper.swift in Sources */,
