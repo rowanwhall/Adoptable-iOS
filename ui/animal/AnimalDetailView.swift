@@ -19,7 +19,7 @@ struct AnimalDetailView: View {
                 if (animal.mainPhotoUrl != nil && !animal.mainPhotoUrl!.isEmpty) {
                     AsyncImage(
                         url: URL(string: animal.mainPhotoUrl!)!,
-                        placeholder: { ProgressView() },
+                        placeholder: { ProgressView().frame(maxWidth: .infinity) },
                         image: { Image(uiImage: $0) }
                     )
                 }
