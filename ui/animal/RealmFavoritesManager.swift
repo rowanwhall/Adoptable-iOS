@@ -61,6 +61,8 @@ class RealmFavoritesManager {
             size: animal.size,
             age: animal.age,
             sex: animal.sex,
+            address1: animal.address1,
+            address2: animal.address2,
             city: animal.city,
             state: animal.state,
             spayNeuter: animal.spayNeuter,
@@ -68,6 +70,11 @@ class RealmFavoritesManager {
             specialNeeds: animal.specialNeeds,
             shotsCurrent: animal.shotsCurrent,
             description: animal.descriptionString,
+            email: animal.email,
+            phone: animal.phone,
+            goodWithChildren: animal.goodWithChildren,
+            goodWithDogs: animal.goodWithDogs,
+            goodWithCats: animal.goodWithCats,
             mainPhotoUrl: animal.mainPhotoUrl,
             fetchPage: -1)
     }
@@ -81,6 +88,8 @@ class RealmFavoritesManager {
         realmObject.size = animal.size
         realmObject.age = animal.age
         realmObject.sex = animal.sex
+        realmObject.address1 = animal.address1
+        realmObject.address2 = animal.address2
         realmObject.city = animal.city
         realmObject.state = animal.state
         realmObject.spayNeuter = animal.spayNeuter
@@ -88,6 +97,11 @@ class RealmFavoritesManager {
         realmObject.specialNeeds = animal.specialNeeds
         realmObject.shotsCurrent = animal.shotsCurrent
         realmObject.descriptionString = animal.description
+        realmObject.email = animal.email
+        realmObject.phone = animal.phone
+        realmObject.goodWithChildren = animal.goodWithChildren
+        realmObject.goodWithDogs = animal.goodWithDogs
+        realmObject.goodWithCats = animal.goodWithCats
         realmObject.mainPhotoUrl = animal.mainPhotoUrl
         return realmObject
     }

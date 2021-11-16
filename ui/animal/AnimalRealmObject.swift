@@ -17,6 +17,8 @@ class AnimalRealmObject: Object {
     @objc dynamic var size: String = ""
     @objc dynamic var age: String = ""
     @objc dynamic var sex: String = ""
+    @objc dynamic var address1: String = ""
+    @objc dynamic var address2: String = ""
     @objc dynamic var city: String? = ""
     @objc dynamic var state: String? = ""
     @objc dynamic var spayNeuter: Bool = false
@@ -24,5 +26,10 @@ class AnimalRealmObject: Object {
     @objc dynamic var specialNeeds: Bool = false
     @objc dynamic var shotsCurrent: Bool = false
     @objc dynamic var descriptionString: String = ""
+    @objc dynamic var email: String? = ""
+    @objc dynamic var phone: String? = ""
+    @objc dynamic var goodWithChildren: Bool = false
+    @objc dynamic var goodWithDogs: Bool = false
+    @objc dynamic var goodWithCats: Bool = false
     @objc dynamic var mainPhotoUrl: String? = ""
 }

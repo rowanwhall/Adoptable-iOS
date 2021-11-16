@@ -16,26 +16,47 @@ struct AnimalDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                if (animal.mainPhotoUrl != nil && !animal.mainPhotoUrl!.isEmpty) {
-                    AsyncImage(
-                        url: URL(string: animal.mainPhotoUrl!)!,
-                        placeholder: { ProgressView().frame(maxWidth: .infinity) },
-                        image: { Image(uiImage: $0) }
-                    )
+                AnimalCard(animal: animal)
+                
+                if (animal.showEnvironment()) {
+                    Divider()
+                    Text(animal.environment())
+                        .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+                        .font(.subheadline)
                 }
                 
-                Text(animal.name)
-                    .font(.largeTitle)
-                    .padding(EdgeInsets(top: 8, leading: 16, bottom: 4, trailing: 16))
-                Text(animal.header())
-                    .font(.headline)
-                    .padding(EdgeInsets(top: 0, leading: 16, bottom: 4, trailing: 16))
-                Text(animal.detail())
-                    .font(.subheadline)
-                    .padding(EdgeInsets(top: 0, leading: 16, bottom: 4, trailing: 16))
+                if (!animal.description.isEmpty) {
+                    Divider()
+                    Text(animal.description)
+                        .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+                        .font(.subheadline)
+                }
+                
+            
+                if (animal.phone != nil) {
+                    Divider()
+                    Text(animal.phone!)
+                        .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+                        .font(.subheadline)
+                }
+                
+                if (animal.email != nil) {
+                    Divider()
+                    Text(animal.email!)
+                        .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+                        .font(.subheadline)
+                }
+                
+                Divider()
+                if (animal.showAddress()) {
+                    Text(animal.address())
+                        .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+                        .font(.subheadline)
+                }
                 
                 Button(viewModel.favoriteButtonLabel, action: { viewModel.addOrRemoveFromFavorites(animal: animal) })
-                    .padding(EdgeInsets(top: 0, leading: 16, bottom: 4, trailing: 16))
+                    .padding(EdgeInsets(top: 8, leading: 16, bottom: 4, trailing: 16))
+                    .frame(maxWidth: .infinity)
                     .onAppear(perform: { viewModel.initializeFavoriteButton(animal: animal) })
             }.navigationBarTitle(animal.name)
         }.primaryNavigationColor

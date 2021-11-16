@@ -26,6 +26,8 @@ struct AnimalResponse: Codable {
                 size: responseItem.size ?? "Size not available",
                 age: responseItem.age ?? "Age not available",
                 sex: responseItem.gender ?? "Gender not available",
+                address1: responseItem.contact.address.address1 ?? "",
+                address2: responseItem.contact.address.address2 ?? "",
                 city: responseItem.contact.address.city,
                 state: responseItem.contact.address.state,
                 spayNeuter: responseItem.attributes.spayed_neutered,
@@ -33,6 +35,11 @@ struct AnimalResponse: Codable {
                 specialNeeds: responseItem.attributes.special_needs,
                 shotsCurrent: responseItem.attributes.shots_current,
                 description: responseItem.description ?? "",
+                email: responseItem.contact.email,
+                phone: responseItem.contact.phone,
+                goodWithChildren: responseItem.environment.children ?? false,
+                goodWithDogs: responseItem.environment.dogs ?? false,
+                goodWithCats: responseItem.environment.cats ?? false,
                 mainPhotoUrl: mainPhotoUrl(photos: responseItem.photos),
                 fetchPage: !isLastPage && i == animals.count ? pagination.current_page + 1 : -1))
         }
