@@ -42,16 +42,36 @@ struct AnimalDetailView: View {
                 
                 if (animal.email != nil) {
                     Divider()
-                    Text(animal.email!)
+                    Button(animal.email!, action: {
+                        if let emailUrl = URL(string: "mailto:\(animal.email!)") {
+                            if #available(iOS 10.0, *) {
+                                UIApplication.shared.open(emailUrl)
+                            } else {
+                                UIApplication.shared.openURL(emailUrl)
+                            }
+                        }
+                    })
                         .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
                         .font(.subheadline)
                 }
                 
-                Divider()
                 if (animal.showAddress()) {
-                    Text(animal.address())
+                    Divider()
+                    Button(animal.address(), action: {
+                        if let encodedAddress = animal.address1.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) {
+                            if let addressUrl = URL(string: "http://maps.apple.com/?address=\(encodedAddress)") {
+                                print(addressUrl.absoluteString)
+                                if #available(iOS 10.0, *) {
+                                    UIApplication.shared.open(addressUrl)
+                                } else {
+                                    UIApplication.shared.openURL(addressUrl)
+                                }
+                            }
+                        }
+                    })
                         .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
                         .font(.subheadline)
+                        .frame(alignment: .leading)
                 }
                 
                 Button(viewModel.favoriteButtonLabel, action: { viewModel.addOrRemoveFromFavorites(animal: animal) })
