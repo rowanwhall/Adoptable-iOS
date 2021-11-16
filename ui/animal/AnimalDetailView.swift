@@ -35,47 +35,71 @@ struct AnimalDetailView: View {
             
                 if (animal.phone != nil) {
                     Divider()
-                    Text(animal.phone!)
-                        .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
-                        .font(.subheadline)
+                    HStack {
+                        Image(systemName: "phone")
+                            .foregroundColor(Color.primaryColorLegacy)
+                        
+                        Button(animal.phone!, action: {
+                            let filteredPhone = animal.phone!.filter("0123456789".contains)
+                            if let phoneUrl = URL(string: "tel:\(filteredPhone)") {
+                                if #available(iOS 10.0, *) {
+                                    UIApplication.shared.open(phoneUrl)
+                                } else {
+                                    UIApplication.shared.openURL(phoneUrl)
+                                }
+                            }
+                        })
+                            .font(.subheadline)
+                            .foregroundColor(Color.primaryColorLegacy)
+                    }.padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
                 }
                 
                 if (animal.email != nil) {
                     Divider()
-                    Button(animal.email!, action: {
-                        if let emailUrl = URL(string: "mailto:\(animal.email!)") {
-                            if #available(iOS 10.0, *) {
-                                UIApplication.shared.open(emailUrl)
-                            } else {
-                                UIApplication.shared.openURL(emailUrl)
+                    HStack {
+                        Image(systemName: "envelope")
+                            .foregroundColor(Color.primaryColorLegacy)
+                        
+                        Button(animal.email!, action: {
+                            if let emailUrl = URL(string: "mailto:\(animal.email!)") {
+                                if #available(iOS 10.0, *) {
+                                    UIApplication.shared.open(emailUrl)
+                                } else {
+                                    UIApplication.shared.openURL(emailUrl)
+                                }
                             }
-                        }
-                    })
-                        .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
-                        .font(.subheadline)
+                        })
+                            .font(.subheadline)
+                            .foregroundColor(Color.primaryColorLegacy)
+                    }.padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
                 }
                 
                 if (animal.showAddress()) {
                     Divider()
-                    Button(animal.address(), action: {
-                        if let encodedAddress = animal.address1.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) {
-                            if let addressUrl = URL(string: "http://maps.apple.com/?address=\(encodedAddress)") {
-                                print(addressUrl.absoluteString)
-                                if #available(iOS 10.0, *) {
-                                    UIApplication.shared.open(addressUrl)
-                                } else {
-                                    UIApplication.shared.openURL(addressUrl)
+                    HStack {
+                        Image(systemName: "location")
+                            .foregroundColor(Color.primaryColorLegacy)
+                        
+                        Button(animal.address(), action: {
+                            if let encodedAddress = animal.address1.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) {
+                                if let addressUrl = URL(string: "http://maps.apple.com/?address=\(encodedAddress)") {
+                                    print(addressUrl.absoluteString)
+                                    if #available(iOS 10.0, *) {
+                                        UIApplication.shared.open(addressUrl)
+                                    } else {
+                                        UIApplication.shared.openURL(addressUrl)
+                                    }
                                 }
                             }
-                        }
-                    })
-                        .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
-                        .font(.subheadline)
-                        .frame(alignment: .leading)
+                        })
+                            .font(.subheadline)
+                            .foregroundColor(Color.primaryColorLegacy)
+                    }.padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
                 }
                 
                 Button(viewModel.favoriteButtonLabel, action: { viewModel.addOrRemoveFromFavorites(animal: animal) })
                     .padding(EdgeInsets(top: 8, leading: 16, bottom: 4, trailing: 16))
+                    .foregroundColor(Color.primaryColorLegacy)
                     .frame(maxWidth: .infinity)
                     .onAppear(perform: { viewModel.initializeFavoriteButton(animal: animal) })
             }.navigationBarTitle(animal.name)
