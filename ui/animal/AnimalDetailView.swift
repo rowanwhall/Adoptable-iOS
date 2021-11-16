@@ -97,11 +97,20 @@ struct AnimalDetailView: View {
                     }.padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
                 }
                 
-                Button(viewModel.favoriteButtonLabel, action: { viewModel.addOrRemoveFromFavorites(animal: animal) })
-                    .padding(EdgeInsets(top: 8, leading: 16, bottom: 4, trailing: 16))
-                    .foregroundColor(Color.primaryColorLegacy)
-                    .frame(maxWidth: .infinity)
-                    .onAppear(perform: { viewModel.initializeFavoriteButton(animal: animal) })
+                Divider()
+                HStack {
+                    Image(systemName: viewModel.favoriteButtonIcon)
+                        .foregroundColor(Color.primaryColorLegacy)
+                    
+                    Button(viewModel.favoriteButtonLabel, action: {
+                        viewModel.addOrRemoveFromFavorites(animal: animal)
+                    })
+                        .font(.subheadline)
+                        .foregroundColor(Color.primaryColorLegacy)
+                        .onAppear(perform: { viewModel.initializeFavoriteButton(animal: animal) })
+                }.padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+            
+                Spacer()
             }.navigationBarTitle(animal.name)
         }.primaryNavigationColor
     }

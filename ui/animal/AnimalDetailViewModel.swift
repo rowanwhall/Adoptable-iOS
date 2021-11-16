@@ -11,12 +11,15 @@ import Foundation
 class AnimalDetailViewModel: ObservableObject {
     
     @Published var favoriteButtonLabel = ""
+    @Published var favoriteButtonIcon = ""
     
     func initializeFavoriteButton(animal: AnimalListItem) {
         if (RealmFavoritesManager.instance.isFavorite(id: animal.id)) {
             favoriteButtonLabel = "Remove from Favorites"
+            favoriteButtonIcon = "heart.fill"
         } else {
             favoriteButtonLabel = "Add to Favorites"
+            favoriteButtonIcon = "heart"
         }
     }
     
@@ -25,9 +28,11 @@ class AnimalDetailViewModel: ObservableObject {
         if (realmManager.isFavorite(id: animal.id)) {
             realmManager.removeFromFavorites(animal: animal)
             favoriteButtonLabel = "Add to Favorites"
+            favoriteButtonIcon = "heart"
         } else {
             realmManager.addToFavorites(animal: animal)
             favoriteButtonLabel = "Remove from Favorites"
+            favoriteButtonIcon = "heart.fill"
         }
     }
     
