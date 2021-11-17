@@ -16,7 +16,7 @@ struct AnimalDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                AnimalCard(animal: animal)
+                AnimalItemView(animal: animal)
                 
                 if (animal.showEnvironment()) {
                     Divider()
@@ -35,83 +35,71 @@ struct AnimalDetailView: View {
             
                 if (animal.phone != nil) {
                     Divider()
-                    HStack {
-                        Image(systemName: "phone")
-                            .foregroundColor(Color.primaryColorLegacy)
-                        
-                        Button(animal.phone!, action: {
-                            let filteredPhone = animal.phone!.filter("0123456789".contains)
-                            if let phoneUrl = URL(string: "tel:\(filteredPhone)") {
-                                if #available(iOS 10.0, *) {
-                                    UIApplication.shared.open(phoneUrl)
-                                } else {
-                                    UIApplication.shared.openURL(phoneUrl)
-                                }
+                    ButtonRowView(text: animal.phone!, imageName: "phone") {
+                        let filteredPhone = animal.phone!.filter("0123456789".contains)
+                        if let phoneUrl = URL(string: "tel:\(filteredPhone)") {
+                            if #available(iOS 10.0, *) {
+                                UIApplication.shared.open(phoneUrl)
+                            } else {
+                                UIApplication.shared.openURL(phoneUrl)
                             }
-                        })
-                            .font(.subheadline)
-                            .foregroundColor(Color.primaryColorLegacy)
-                    }.padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+                        }
+                    }
                 }
                 
                 if (animal.email != nil) {
                     Divider()
-                    HStack {
-                        Image(systemName: "envelope")
-                            .foregroundColor(Color.primaryColorLegacy)
-                        
-                        Button(animal.email!, action: {
-                            if let emailUrl = URL(string: "mailto:\(animal.email!)") {
-                                if #available(iOS 10.0, *) {
-                                    UIApplication.shared.open(emailUrl)
-                                } else {
-                                    UIApplication.shared.openURL(emailUrl)
-                                }
+                    ButtonRowView(text: animal.email!, imageName: "envelope") {
+                        if let emailUrl = URL(string: "mailto:\(animal.email!)") {
+                            if #available(iOS 10.0, *) {
+                                UIApplication.shared.open(emailUrl)
+                            } else {
+                                UIApplication.shared.openURL(emailUrl)
                             }
-                        })
-                            .font(.subheadline)
-                            .foregroundColor(Color.primaryColorLegacy)
-                    }.padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+                        }
+                    }
                 }
                 
                 if (animal.showAddress()) {
                     Divider()
-                    HStack {
-                        Image(systemName: "location")
-                            .foregroundColor(Color.primaryColorLegacy)
-                        
-                        Button(animal.address(), action: {
-                            if let encodedAddress = animal.address1.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) {
-                                if let addressUrl = URL(string: "http://maps.apple.com/?address=\(encodedAddress)") {
-                                    print(addressUrl.absoluteString)
-                                    if #available(iOS 10.0, *) {
-                                        UIApplication.shared.open(addressUrl)
-                                    } else {
-                                        UIApplication.shared.openURL(addressUrl)
-                                    }
+                    ButtonRowView(text: animal.address(), imageName: "location") {
+                        if let encodedAddress = animal.address1.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) {
+                            if let addressUrl = URL(string: "http://maps.apple.com/?address=\(encodedAddress)") {
+                                if #available(iOS 10.0, *) {
+                                    UIApplication.shared.open(addressUrl)
+                                } else {
+                                    UIApplication.shared.openURL(addressUrl)
                                 }
                             }
-                        })
-                            .font(.subheadline)
-                            .foregroundColor(Color.primaryColorLegacy)
-                    }.padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+                        }
+                    }
                 }
                 
                 Divider()
-                HStack {
-                    Image(systemName: viewModel.favoriteButtonIcon)
-                        .foregroundColor(Color.primaryColorLegacy)
-                    
-                    Button(viewModel.favoriteButtonLabel, action: {
-                        viewModel.addOrRemoveFromFavorites(animal: animal)
-                    })
-                        .font(.subheadline)
-                        .foregroundColor(Color.primaryColorLegacy)
-                        .onAppear(perform: { viewModel.initializeFavoriteButton(animal: animal) })
-                }.padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
-            
+                ButtonRowView(text: viewModel.favoriteButtonLabel, imageName: viewModel.favoriteButtonIcon) {
+                    viewModel.addOrRemoveFromFavorites(animal: animal)
+                }.onAppear(perform: { viewModel.initializeFavoriteButton(animal: animal) })
+                
                 Spacer()
             }.navigationBarTitle(animal.name)
         }.primaryNavigationColor
+    }
+}
+
+struct ButtonRowView: View {
+    
+    var text: String
+    var imageName: String
+    var action: () -> Void
+    
+    var body: some View {
+        HStack {
+            Image(systemName: imageName)
+                .foregroundColor(Color.primaryColorLegacy)
+            
+            Button(text, action: { action() })
+                .font(.subheadline)
+                .foregroundColor(Color.primaryColorLegacy)
+        }.padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
     }
 }

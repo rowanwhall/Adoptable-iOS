@@ -36,7 +36,7 @@ struct SearchView : View {
                                 ForEach(0 ..< animalTypes.count) {
                                    Text(self.animalTypes[$0])
                                 }
-                    }.navigationBarColor(Color.primaryColor, textColor: .white)
+                    }
                     .onChange(of: self.selectedType) { newValue in
                         viewModel.getBreeds(type: SearchArgumentMapper.animalTypeFromIndex(index: newValue))
                     }
