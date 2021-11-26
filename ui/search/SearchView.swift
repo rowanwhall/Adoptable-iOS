@@ -39,31 +39,33 @@ struct SearchView : View {
                     }
                     .onChange(of: self.selectedType) { newValue in
                         viewModel.getBreeds(type: SearchArgumentMapper.animalTypeFromIndex(index: newValue))
-                    }
+                    }.pickerStyle(.menu)
                     
+                    if (selectedType > 0) {
+                        Picker(selection: $selectedBreed, label: Text("Breed")) {
+                           ForEach(0 ..< (viewModel.resource.resourceData ?? [SearchViewModel.DEFAULT_BREED_SELECTION]).count, id: \.self) {
+                               Text((viewModel.resource.resourceData ?? [SearchViewModel.DEFAULT_BREED_SELECTION])[$0].name)
+                           }
+                        }.pickerStyle(.menu)
+                    }
+
                     Picker(selection: $selectedSize, label: Text("Size")) {
-                                ForEach(0 ..< sizes.count) {
-                                   Text(self.sizes[$0])
-                                }
-                             }
-                    
-                    Picker(selection: $selectedAge, label: Text("Age")) {
-                                ForEach(0 ..< ages.count) {
-                                   Text(self.ages[$0])
-                                }
-                             }
-                    
-                    Picker(selection: $selectedSex, label: Text("Sex")) {
-                                ForEach(0 ..< sexes.count) {
-                                   Text(self.sexes[$0])
-                                }
-                             }
-                    
-                    Picker(selection: $selectedBreed, label: Text("Breed")) {
-                        ForEach(0 ..< (viewModel.resource.resourceData ?? [SearchViewModel.DEFAULT_BREED_SELECTION]).count, id: \.self) {
-                            Text((viewModel.resource.resourceData ?? [SearchViewModel.DEFAULT_BREED_SELECTION])[$0].name)
+                        ForEach(0 ..< sizes.count) {
+                           Text(self.sizes[$0])
                         }
-                    }
+                     }.pickerStyle(.menu)
+
+                    Picker(selection: $selectedAge, label: Text("Age")) {
+                        ForEach(0 ..< ages.count) {
+                           Text(self.ages[$0])
+                        }
+                     }.pickerStyle(.segmented)
+
+                    Picker(selection: $selectedSex, label: Text("Sex")) {
+                        ForEach(0 ..< sexes.count) {
+                           Text(self.sexes[$0])
+                        }
+                     }.pickerStyle(.segmented)
                     
                     NavigationLink(destination: AnimalListView(
                                     arguments: NearbyAnimalArguments(location: zipCode,
