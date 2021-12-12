@@ -16,7 +16,29 @@ class PetfinderRepository {
     private let BASE_URL = "https://api.petfinder.com/v2/"
     private var oAuthToken: String? = nil
     
-    private func combineAuthToken() -> AnyPublisher<String?, Never> {
+    func getAnimalList(arguments: AnimalArguments, page: Int) -> AnyPublisher<AnimalResponse?, Error> {
+        return authTokenPublisher().flatMap { token in
+            return self.animalListPublisher(arguments: arguments, page: page, token: token!)
+        }
+        .eraseToAnyPublisher()
+    }
+    
+    func getShelterList(page: Int) -> AnyPublisher<ShelterResponse?, Error> {
+        return authTokenPublisher().flatMap { token in
+            return self.shelterListPublisher(page: page, token: token!)
+        }
+        .eraseToAnyPublisher()
+    }
+    
+    func getBreeds(type: String) -> AnyPublisher<BreedsResponse?, Never> {
+        return authTokenPublisher().flatMap { token in
+            return self.breedListPublisher(type: type, token: token!)
+        }
+        .replaceError(with: nil)
+        .eraseToAnyPublisher()
+    }
+    
+    private func authTokenPublisher() -> AnyPublisher<String?, Never> {
         if self.oAuthToken != nil {
             return Just(self.oAuthToken).eraseToAnyPublisher()
         }
@@ -45,7 +67,7 @@ class PetfinderRepository {
             .eraseToAnyPublisher()
     }
     
-    private func combineAnimalList(arguments: AnimalArguments, page: Int, token: String) -> AnyPublisher<AnimalResponse?, Error> {
+    private func animalListPublisher(arguments: AnimalArguments, page: Int, token: String) -> AnyPublisher<AnimalResponse?, Error> {
         var url = URLComponents(string: BASE_URL + "animals")!
         url.queryItems = [
             URLQueryItem(name: "page", value: String(page))
@@ -85,19 +107,13 @@ class PetfinderRepository {
         
         return URLSession.shared.dataTaskPublisher(for: request)
             .tryMap { (data, response) -> AnimalResponse? in
+                self.clearTokenOnFailure(response: response)
                 return try? JSONDecoder().decode(AnimalResponse.self, from: data)
             }
             .eraseToAnyPublisher()
     }
     
-    func getAnimalList(arguments: AnimalArguments, page: Int) -> AnyPublisher<AnimalResponse?, Error> {
-        return combineAuthToken().flatMap { token in
-            return self.combineAnimalList(arguments: arguments, page: page, token: token!)
-        }
-        .eraseToAnyPublisher()
-    }
-    
-    private func combineShelterList(page: Int, token: String) -> AnyPublisher<ShelterResponse?, Error> {
+    private func shelterListPublisher(page: Int, token: String) -> AnyPublisher<ShelterResponse?, Error> {
         var url = URLComponents(string: BASE_URL + "organizations")!
         url.queryItems = [
             URLQueryItem(name: "location", value: "30308"),
@@ -112,19 +128,13 @@ class PetfinderRepository {
         
         return URLSession.shared.dataTaskPublisher(for: request)
             .tryMap { (data, response) -> ShelterResponse? in
+                self.clearTokenOnFailure(response: response)
                 return try? JSONDecoder().decode(ShelterResponse.self, from: data)
             }
             .eraseToAnyPublisher()
     }
     
-    func getShelterList(page: Int) -> AnyPublisher<ShelterResponse?, Error> {
-        return combineAuthToken().flatMap { token in
-            return self.combineShelterList(page: page, token: token!)
-        }
-        .eraseToAnyPublisher()
-    }
-    
-    private func combineBreedSearch(type: String, token: String) -> AnyPublisher<BreedsResponse?, Error> {
+    private func breedListPublisher(type: String, token: String) -> AnyPublisher<BreedsResponse?, Error> {
         let url = URLComponents(string: BASE_URL + "types/" + type + "/breeds")!
         var request = URLRequest(url: url.url!)
         request.httpMethod = "GET"
@@ -135,16 +145,17 @@ class PetfinderRepository {
         
         return URLSession.shared.dataTaskPublisher(for: request)
             .tryMap { (data, response) -> BreedsResponse? in
+                self.clearTokenOnFailure(response: response)
                 return try? JSONDecoder().decode(BreedsResponse.self, from: data)
             }
             .eraseToAnyPublisher()
     }
     
-    func getBreeds(type: String) -> AnyPublisher<BreedsResponse?, Never> {
-        return combineAuthToken().flatMap { token in
-            return self.combineBreedSearch(type: type, token: token!)
+    private func clearTokenOnFailure(response: URLResponse) {
+        let httpResponse = response as? HTTPURLResponse
+        if httpResponse != nil && (400...499).contains(httpResponse!.statusCode) {
+            self.oAuthToken = nil
         }
-        .replaceError(with: nil)
-        .eraseToAnyPublisher()
     }
+
 }

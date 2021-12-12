@@ -21,9 +21,9 @@ struct SearchView : View {
     @State private var selectedBreed = 0
     
     private let animalTypes = ["Any Animal", "Dogs", "Cats", "Birds", "Reptiles", "Small Furry", "Horses", "Rabbits", "Barnyard"]
-    private let sizes = ["Any Size", "Small", "Medium", "Large", "Extra Large"]
-    private let ages = ["Any Age", "Baby", "Young", "Adult", "Senior"]
-    private let sexes = ["Any Sex", "Male", "Female"]
+    private let sizes = ["Any", "S", "M", "L", "XL"]
+    private let ages = ["Any", "Baby", "Young", "Adult", "Senior"]
+    private let sexes = ["Any", "Male", "Female"]
     
     var body: some View {
         VStack {
@@ -53,7 +53,7 @@ struct SearchView : View {
                         ForEach(0 ..< sizes.count) {
                            Text(self.sizes[$0])
                         }
-                     }.pickerStyle(.menu)
+                     }.pickerStyle(.segmented)
 
                     Picker(selection: $selectedAge, label: Text("Age")) {
                         ForEach(0 ..< ages.count) {
