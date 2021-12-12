@@ -31,6 +31,7 @@ struct AnimalListItem: Codable, Identifiable {
     var goodWithDogs: Bool
     var goodWithCats: Bool
     var mainPhotoUrl: String?
+    var photoUrls: [String]
     var fetchPage: Int
     
     func header() -> String {

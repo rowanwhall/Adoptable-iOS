@@ -76,6 +76,7 @@ class RealmFavoritesManager {
             goodWithDogs: animal.goodWithDogs,
             goodWithCats: animal.goodWithCats,
             mainPhotoUrl: animal.mainPhotoUrl,
+            photoUrls: [String](), // todo: add this to realm
             fetchPage: -1)
     }
     

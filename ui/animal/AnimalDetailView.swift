@@ -82,6 +82,11 @@ struct AnimalDetailView: View {
                 
                 Spacer()
             }.navigationBarTitle(animal.name)
+                .toolbar {
+                    if (animal.photoUrls.count > 0) {
+                        NavigationLink("All Photos", destination: AnimalGalleryView(photoUrls: animal.photoUrls))
+                    }
+                }
         }.primaryNavigationColor
     }
 }

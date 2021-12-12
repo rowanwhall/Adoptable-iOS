@@ -41,6 +41,7 @@ struct AnimalResponse: Codable {
                 goodWithDogs: responseItem.environment.dogs ?? false,
                 goodWithCats: responseItem.environment.cats ?? false,
                 mainPhotoUrl: mainPhotoUrl(photos: responseItem.photos),
+                photoUrls: photoUrls(photos: responseItem.photos),
                 fetchPage: !isLastPage && i == animals.count ? pagination.current_page + 1 : -1))
         }
         return animalArray
@@ -75,6 +76,28 @@ struct AnimalResponse: Codable {
         }
         
         return nil
+    }
+    
+    private func photoUrls(photos: [PhotoResponseItem]) -> [String] {
+        var photoUrls = [String]()
+        for photo in photos {
+            if (photo.full != nil) {
+                photoUrls.append(photo.full!)
+                continue
+            }
+            if (photo.large != nil) {
+                photoUrls.append(photo.large!)
+                continue
+            }
+            if (photo.medium != nil) {
+                photoUrls.append(photo.medium!)
+                continue
+            }
+            if (photo.small != nil) {
+                photoUrls.append(photo.small!)
+            }
+        }
+        return photoUrls
     }
 }
 

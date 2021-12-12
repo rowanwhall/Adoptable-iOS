@@ -35,6 +35,7 @@
 		0584D3ED25E87437004FBFC1 /* SearchArgumentMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584D3EC25E87437004FBFC1 /* SearchArgumentMapper.swift */; };
 		0584D3F025E96CFE004FBFC1 /* BreedsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584D3EF25E96CFE004FBFC1 /* BreedsResponse.swift */; };
 		0584D3F425E96EA5004FBFC1 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584D3F325E96EA5004FBFC1 /* SearchViewModel.swift */; };
+		059E9D8E2752BB16004B76A2 /* AnimalGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059E9D8D2752BB16004B76A2 /* AnimalGalleryView.swift */; };
 		05B317A22572BAB5006665C5 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B317A12572BAB5006665C5 /* ImageCache.swift */; };
 		05B317A42572BAE8006665C5 /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B317A32572BAE8006665C5 /* AsyncImage.swift */; };
 		05B317A62572BB09006665C5 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B317A52572BB09006665C5 /* ImageLoader.swift */; };
@@ -83,6 +84,7 @@
 		0584D3EC25E87437004FBFC1 /* SearchArgumentMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchArgumentMapper.swift; sourceTree = "<group>"; };
 		0584D3EF25E96CFE004FBFC1 /* BreedsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsResponse.swift; sourceTree = "<group>"; };
 		0584D3F325E96EA5004FBFC1 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		059E9D8D2752BB16004B76A2 /* AnimalGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalGalleryView.swift; sourceTree = "<group>"; };
 		05B317A12572BAB5006665C5 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		05B317A32572BAE8006665C5 /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
 		05B317A52572BB09006665C5 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				05B462EC260EAA2600395F9D /* AnimalDetailViewModel.swift */,
 				05B462E6260687F600395F9D /* AnimalRealmObject.swift */,
 				05B462E9260E972900395F9D /* RealmFavoritesManager.swift */,
+				059E9D8D2752BB16004B76A2 /* AnimalGalleryView.swift */,
 			);
 			path = animal;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				0539054E2505A211004DB1C7 /* ShelterViewModel.swift in Sources */,
 				05390556253CE04A004DB1C7 /* AnimalDetailView.swift in Sources */,
 				05B8E5D7274205B300CEAF0F /* NavigatorView.swift in Sources */,
+				059E9D8E2752BB16004B76A2 /* AnimalGalleryView.swift in Sources */,
 				0539054424F5D71D004DB1C7 /* AnimalListViewModel.swift in Sources */,
 				05B462E7260687F600395F9D /* AnimalRealmObject.swift in Sources */,
 				0584D3ED25E87437004FBFC1 /* SearchArgumentMapper.swift in Sources */,
