@@ -32,4 +32,5 @@ class AnimalRealmObject: Object {
     @objc dynamic var goodWithDogs: Bool = false
     @objc dynamic var goodWithCats: Bool = false
     @objc dynamic var mainPhotoUrl: String? = ""
+    var photoUrls: List<String> = List<String>()
 }

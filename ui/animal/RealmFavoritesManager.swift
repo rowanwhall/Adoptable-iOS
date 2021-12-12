@@ -76,7 +76,7 @@ class RealmFavoritesManager {
             goodWithDogs: animal.goodWithDogs,
             goodWithCats: animal.goodWithCats,
             mainPhotoUrl: animal.mainPhotoUrl,
-            photoUrls: [String](), // todo: add this to realm
+            photoUrls: animal.photoUrls.map { $0 },
             fetchPage: -1)
     }
     
@@ -104,6 +104,11 @@ class RealmFavoritesManager {
         realmObject.goodWithDogs = animal.goodWithDogs
         realmObject.goodWithCats = animal.goodWithCats
         realmObject.mainPhotoUrl = animal.mainPhotoUrl
+        let photoUrls = List<String>()
+        for photoUrl in animal.photoUrls {
+            photoUrls.append(photoUrl)
+        }
+        realmObject.photoUrls = photoUrls
         return realmObject
     }
 }
