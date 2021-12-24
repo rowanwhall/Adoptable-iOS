@@ -30,7 +30,6 @@
 		056CFB4024C37C730012CC7B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 056CFB3F24C37C730012CC7B /* Preview Assets.xcassets */; };
 		056CFB4324C37C730012CC7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 056CFB4124C37C730012CC7B /* LaunchScreen.storyboard */; };
 		057CEB0125E9819B009CD741 /* BreedListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057CEB0025E9819B009CD741 /* BreedListItem.swift */; };
-		057CEB0C25E9B2CA009CD741 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057CEB0B25E9B2CA009CD741 /* Constants.swift */; };
 		0584D3EA25E849D5004FBFC1 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584D3E925E849D5004FBFC1 /* SearchView.swift */; };
 		0584D3ED25E87437004FBFC1 /* SearchArgumentMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584D3EC25E87437004FBFC1 /* SearchArgumentMapper.swift */; };
 		0584D3F025E96CFE004FBFC1 /* BreedsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0584D3EF25E96CFE004FBFC1 /* BreedsResponse.swift */; };
@@ -51,6 +50,7 @@
 		05B8E5D22741998900CEAF0F /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B8E5D12741998900CEAF0F /* Color.swift */; };
 		05B8E5D7274205B300CEAF0F /* NavigatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B8E5D6274205B300CEAF0F /* NavigatorView.swift */; };
 		05B8E5DB2744814700CEAF0F /* AnimalItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B8E5DA2744814700CEAF0F /* AnimalItemView.swift */; };
+		05C387CA27768FB300F82D68 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C387C927768FB300F82D68 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,7 +79,6 @@
 		056CFB4224C37C730012CC7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		056CFB4424C37C730012CC7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		057CEB0025E9819B009CD741 /* BreedListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedListItem.swift; sourceTree = "<group>"; };
-		057CEB0B25E9B2CA009CD741 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0584D3E925E849D5004FBFC1 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		0584D3EC25E87437004FBFC1 /* SearchArgumentMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchArgumentMapper.swift; sourceTree = "<group>"; };
 		0584D3EF25E96CFE004FBFC1 /* BreedsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsResponse.swift; sourceTree = "<group>"; };
@@ -98,6 +97,7 @@
 		05B8E5D12741998900CEAF0F /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		05B8E5D6274205B300CEAF0F /* NavigatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorView.swift; sourceTree = "<group>"; };
 		05B8E5DA2744814700CEAF0F /* AnimalItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalItemView.swift; sourceTree = "<group>"; };
+		05C387C927768FB300F82D68 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = app/Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,7 +183,7 @@
 		056CFB2A24C37C710012CC7B = {
 			isa = PBXGroup;
 			children = (
-				057CEB0B25E9B2CA009CD741 /* Constants.swift */,
+				05C387C927768FB300F82D68 /* Constants.swift */,
 				053905542505AF7F004DB1C7 /* ui */,
 				053905512505AEEE004DB1C7 /* network */,
 				056CFB3524C37C710012CC7B /* app */,
@@ -326,7 +326,6 @@
 				05B317A22572BAB5006665C5 /* ImageCache.swift in Sources */,
 				05B317A42572BAE8006665C5 /* AsyncImage.swift in Sources */,
 				0584D3EA25E849D5004FBFC1 /* SearchView.swift in Sources */,
-				057CEB0C25E9B2CA009CD741 /* Constants.swift in Sources */,
 				0539054C24FC763F004DB1C7 /* ShelterListItem.swift in Sources */,
 				05B8E5DB2744814700CEAF0F /* AnimalItemView.swift in Sources */,
 				05B462ED260EAA2600395F9D /* AnimalDetailViewModel.swift in Sources */,
@@ -342,6 +341,7 @@
 				05B8E5D0274193FC00CEAF0F /* NavigationBarModifier.swift in Sources */,
 				0584D3F025E96CFE004FBFC1 /* BreedsResponse.swift in Sources */,
 				05B8E5D22741998900CEAF0F /* Color.swift in Sources */,
+				05C387CA27768FB300F82D68 /* Constants.swift in Sources */,
 				05B462EA260E972900395F9D /* RealmFavoritesManager.swift in Sources */,
 				05395F2625ABC3140013990B /* ShelterAnimalArguments.swift in Sources */,
 				05395F1E25AB921C0013990B /* AnimalArguments.swift in Sources */,
@@ -428,7 +428,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -483,7 +483,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -501,7 +501,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"app/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = app/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -521,7 +521,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"app/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = app/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

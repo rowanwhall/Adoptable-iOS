@@ -15,8 +15,8 @@ class ShelterListViewModel: ObservableObject {
     @Published var resource: Resource<[ShelterListItem]> = Resource<[ShelterListItem]>.initialize()
     var nextPage = 1
     
-    func getShelterList() {
-        petfinderRepository.getShelterList(page: nextPage)
+    func getShelterList(clear: Bool = false) {
+        petfinderRepository.getShelterList(page: clear ? 1 : nextPage)
             .map { (response: ShelterResponse?) -> Resource<[ShelterListItem]> in
                 var results = self.resource.resourceData ?? []
                 results += response?.toShelters() ?? []

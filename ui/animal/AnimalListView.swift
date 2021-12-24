@@ -39,6 +39,8 @@ struct AnimalListView: View {
                                     }).background(NavigationLink("", destination: AnimalDetailView(animal: animal)).opacity(0))
                                     .listRowInsets(EdgeInsets())
                             }
+                        }.refreshable {
+                            viewModel.getAnimalList(arguments: self.arguments, clear: true)
                         }
                     }
                 }

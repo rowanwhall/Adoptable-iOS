@@ -19,7 +19,7 @@ class AnimalListViewModel: ObservableObject {
     
     private var isFavorites = false
     
-    func getAnimalList(arguments: AnimalArguments) {
+    func getAnimalList(arguments: AnimalArguments, clear: Bool = false) {
         if (arguments.type() == AnimalArgumentType.favorites) {
             self.isFavorites = true
             let realmManager = RealmFavoritesManager.instance
@@ -39,7 +39,7 @@ class AnimalListViewModel: ObservableObject {
             return
         }
         
-        petfinderRepository.getAnimalList(arguments: arguments, page: nextPage)
+        petfinderRepository.getAnimalList(arguments: arguments, page: clear ? 1 : nextPage)
             .map { (response: AnimalResponse?) -> Resource<[AnimalListItem]> in
                 var results = self.resource.resourceData ?? []
                 if response != nil {

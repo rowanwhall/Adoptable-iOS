@@ -39,6 +39,8 @@ struct ShelterListView: View {
                                     })
                                 }
                             }
+                        }.refreshable {
+                            viewModel.getShelterList(clear: true)
                         }
                     }
                 }
