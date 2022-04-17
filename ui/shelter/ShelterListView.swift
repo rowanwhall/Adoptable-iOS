@@ -31,7 +31,7 @@ struct ShelterListView: View {
                             ForEach(viewModel.resource.resourceData!) {shelter in
                                 NavigationLink(destination:
                                                 AnimalListView(arguments:ShelterAnimalArguments(shelterId: shelter.id), customTitle: shelter.name)) {
-                                    ShelterCard(shelter: shelter)
+                                    ShelterItemView(shelter: shelter)
                                         .onAppear(perform: {
                                             if (self.viewModel.shouldPaginate(shelter: shelter)) {
                                                 self.viewModel.getShelterList()
@@ -50,7 +50,7 @@ struct ShelterListView: View {
     }
 }
 
-struct ShelterCard: View {
+struct ShelterItemView: View {
     var shelter: ShelterListItem
     
     var body: some View {

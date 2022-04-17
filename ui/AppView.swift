@@ -44,6 +44,8 @@ struct AppView: View {
             ToolbarItem(placement: .principal) {
                 Image("toolbarImageSet")
             }
+        }.onAppear {
+            UserDefaults.standard.set(self.location, forKey: "location")
         }
     }
 }

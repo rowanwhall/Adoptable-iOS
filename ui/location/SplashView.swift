@@ -36,9 +36,16 @@ struct SplashView: View {
     
     private func subscribeToLocationUpdates() {
         if (lm.isLocationDenied()) {
-            self.selectedDestination = .locationView
+            let savedLocation = UserDefaults.standard.string(forKey: "location")
+            if (savedLocation != nil) {
+                self.latLng = savedLocation!
+                self.selectedDestination = .appView
+            } else {
+                self.selectedDestination = .locationView
+            }
             return
         }
+        
         lm.requestUpdates { (status: CLAuthorizationStatus) in
             if status == .authorizedAlways || status == .authorizedWhenInUse {
                 self.lm.startUpdatingLocation()
